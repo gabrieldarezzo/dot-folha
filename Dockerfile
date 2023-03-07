@@ -5,7 +5,7 @@ run dotnet restore
 COPY . .
 RUN dotnet publish -c release -o /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0.3-bullseye-slim-arm32v7
 WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet", "DemoMicroService.dll"]

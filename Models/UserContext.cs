@@ -8,5 +8,5 @@ public class UserContext : DbContext
     public string DbPath { get; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseMySQL("Server=localhost;DataBase=homestead;Uid=root;Pwd=root");
+        => options.UseMySQL("Server=db;DataBase=homestead;Uid=root;Pwd=root");
 }

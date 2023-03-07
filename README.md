@@ -22,4 +22,19 @@ docker container run -it --rm -p 3000:80 --name dotnetservicecontainer dotnetser
 ```shell
 dotnet run
 ```  
-http://localhost:5253/users
+http://localhost:3000/users
+
+
+### Install ping
+```shell
+apt update && apt upgrade && apt install iputils-ping
+```  
+
+### Check Database
+```shell
+docker exec -it db bash
+mysql -uroot -proot homestead
+```  
+
+
+
