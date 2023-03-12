@@ -3,6 +3,8 @@ version: '3'
 services:
   dotnetservice:
     container_name: dotnetservicecontainer
+    environment:
+      DOCKER_MODE: "true"
     build: .    
     ports:
       - "3000:80"

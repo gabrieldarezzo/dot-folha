@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 public class UserContext : DbContext
 {
@@ -7,6 +8,18 @@ public class UserContext : DbContext
 
     public string DbPath { get; }
     
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseMySQL("Server=db;DataBase=homestead;Uid=root;Pwd=root");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+           IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        if(bool.Parse(Environment.GetEnvironmentVariable("DOCKER_MODE"))) {
+            string connectionString = configuration.GetConnectionString("DockerConnection");
+            optionsBuilder.UseMySQL(connectionString);
+        } else {
+            string connectionString = configuration.GetConnectionString("Default");
+            optionsBuilder.UseMySQL(connectionString);            
+        }
+    }    
 }

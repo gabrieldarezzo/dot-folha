@@ -2,35 +2,50 @@
 O Dot folha é um sistema de ponto com fim acadêmicos, desenvolvido em C#.
 
 ## Run in Local:
-```shell
-docker build -t dotnetservice .
-```
 
-## Docker 
-### Up Cointainer
+### up Just mysql
 ```shell
-docker build -t dotnetservice .
+docker-compose up db
 ```
-
-### Run Cointainer
-```shell
-docker container run -it --rm -p 3000:80 --name dotnetservicecontainer dotnetservice
-```
-
 
 ## Run in Local:
 ```shell
 dotnet run
 ```  
-http://localhost:3000/users
+
+Check in url:   
+http://localhost:3000/users  
 
 
-### Install ping
+
+
+## Docker 
+### Up .net + mysql-server
 ```shell
-apt update && apt upgrade && apt install iputils-ping
+docker-compose up --build
 ```  
 
-### Check Database
+
+### Build (aws || azure)?
+```shell
+docker build -t dotnetservice .
+```
+
+### run cointainer
+```shell
+docker container run -it --rm -p 3000:80 --name dotnetservicecontainer dotnetservice
+```
+
+### Debug in container:
+
+#### Install ping
+```shell
+docker exec -it dotnetservicecontainer bash
+apt update && apt upgrade && apt install iputils-ping
+ping db
+```  
+
+#### Check database
 ```shell
 docker exec -it db bash
 mysql -uroot -proot homestead
