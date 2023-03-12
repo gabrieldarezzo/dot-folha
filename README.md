@@ -17,6 +17,29 @@ Check in url:
 http://localhost:3000/users  
 
 
+# Database Migrations 
+This project use CODE-FIRST workflow.
+
+You'll need:
+- https://learn.microsoft.com/en-us/ef/core/cli/dotnet
+(Cli commands to create/run and improve database)
+
+
+#### Install dotnet-ef
+```shell
+dotnet tool install --global dotnet-ef
+```
+
+#### Run all migrations:
+```shell
+dotnet ef database update
+```
+
+
+##### Example of create migration:
+```shell
+dotnet ef migrations add users
+```
 
 
 ## Docker 

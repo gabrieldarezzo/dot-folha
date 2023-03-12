@@ -14,12 +14,16 @@ public class UserContext : DbContext
             .AddJsonFile("appsettings.json")
             .Build();
 
-        if(bool.Parse(Environment.GetEnvironmentVariable("DOCKER_MODE"))) {
-            string connectionString = configuration.GetConnectionString("DockerConnection");
-            optionsBuilder.UseMySQL(connectionString);
-        } else {
-            string connectionString = configuration.GetConnectionString("Default");
-            optionsBuilder.UseMySQL(connectionString);            
-        }
+
+        string connectionString = configuration.GetConnectionString("Default");
+        optionsBuilder.UseMySQL(connectionString);            
+
+        // if(bool.Parse(Environment.GetEnvironmentVariable("DOCKER_MODE"))) {
+        //     string connectionString = configuration.GetConnectionString("DockerConnection");
+        //     optionsBuilder.UseMySQL(connectionString);
+        // } else {
+        //     string connectionString = configuration.GetConnectionString("Default");
+        //     optionsBuilder.UseMySQL(connectionString);            
+        // }
     }    
 }
