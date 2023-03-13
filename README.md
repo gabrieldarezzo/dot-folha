@@ -71,7 +71,7 @@ ping db
 #### Check database
 ```shell
 docker exec -it db bash
-mysql -uroot -proot homestead
+mysql -uroot -proot dotfolhadb
 ```  
 
 

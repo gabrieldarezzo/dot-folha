@@ -1,3 +1,4 @@
+namespace DemoMicroService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
