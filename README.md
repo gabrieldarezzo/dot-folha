@@ -1,5 +1,16 @@
 # Dot-Folha
-O Dot folha é um sistema de ponto com fim acadêmicos, desenvolvido em C#.
+O Dot-Folha-API é uma api para cadastro de:
+- Empresas
+- Usuários
+- Pagamentos
+- Endereços
+
+Com fim acadêmicos, desenvolvido em:
+- C# (.NET Core 7.0)
+-- Swaggger
+-- Entity Framework 7.0
+- Mysql 8.0
+- Docker
 
 ## Run in Local:
 
@@ -9,9 +20,16 @@ docker-compose up db
 ```
 
 ## Run in Local:
+### Normal mode:
 ```shell
 dotnet run
 ```  
+
+### Developer Mode:
+```shell
+dotnet watch run
+```  
+
 
 Check in url:   
 http://localhost:3000/users  
